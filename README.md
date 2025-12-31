@@ -1,4 +1,4 @@
 # agent-gallery
 
 # Arquitetura
-![Arquitetura](doc/arquitetura.png)
+![Arquitetura](doc/arquitetura_nova.png)

@@ -1,0 +1,94 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.8 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.8">
+  <diagram name="Página-1" id="ues5sA1eUQxTPF3GIuZn">
+    <mxGraphModel dx="1217" dy="594" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="RutAHRLgaHvTkr2r3oAR-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="RutAHRLgaHvTkr2r3oAR-1" target="RutAHRLgaHvTkr2r3oAR-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RutAHRLgaHvTkr2r3oAR-1" value="Usuário" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="190" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RutAHRLgaHvTkr2r3oAR-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="RutAHRLgaHvTkr2r3oAR-2" target="RutAHRLgaHvTkr2r3oAR-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RutAHRLgaHvTkr2r3oAR-2" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F6mk8aoa97px9xhi723o1.jpg;" vertex="1" parent="1">
+          <mxGeometry x="480" y="203.2" width="80" height="33.6" as="geometry" />
+        </mxCell>
+        <mxCell id="RutAHRLgaHvTkr2r3oAR-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="RutAHRLgaHvTkr2r3oAR-4" target="RutAHRLgaHvTkr2r3oAR-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RutAHRLgaHvTkr2r3oAR-4" value="Api Gateway&lt;div&gt;POST&lt;/div&gt;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.api_gateway;" vertex="1" parent="1">
+          <mxGeometry x="740" y="50" width="38" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="RutAHRLgaHvTkr2r3oAR-5" value="Api Gateway&lt;div&gt;POST&lt;/div&gt;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.api_gateway;" vertex="1" parent="1">
+          <mxGeometry x="738" y="350" width="38" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="RutAHRLgaHvTkr2r3oAR-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="RutAHRLgaHvTkr2r3oAR-2" target="RutAHRLgaHvTkr2r3oAR-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="220" />
+              <mxPoint x="640" y="69" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RutAHRLgaHvTkr2r3oAR-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="RutAHRLgaHvTkr2r3oAR-2" target="RutAHRLgaHvTkr2r3oAR-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="220" />
+              <mxPoint x="640" y="369" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RutAHRLgaHvTkr2r3oAR-10" value="Api Gateway&lt;div&gt;GET&lt;/div&gt;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.api_gateway;" vertex="1" parent="1">
+          <mxGeometry x="738" y="200" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="RutAHRLgaHvTkr2r3oAR-12" value="Cria Agente" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="650" y="40" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RutAHRLgaHvTkr2r3oAR-14" value="Lista ou seleciona agente" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="660" y="180" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RutAHRLgaHvTkr2r3oAR-15" value="Req Agente" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="660" y="330" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RutAHRLgaHvTkr2r3oAR-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="RutAHRLgaHvTkr2r3oAR-16" target="RutAHRLgaHvTkr2r3oAR-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RutAHRLgaHvTkr2r3oAR-16" value="Lambda" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.lambda_function;fillColor=#F58534;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="860" y="200" width="42" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="RutAHRLgaHvTkr2r3oAR-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="RutAHRLgaHvTkr2r3oAR-10" target="RutAHRLgaHvTkr2r3oAR-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RutAHRLgaHvTkr2r3oAR-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="RutAHRLgaHvTkr2r3oAR-18" target="RutAHRLgaHvTkr2r3oAR-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RutAHRLgaHvTkr2r3oAR-18" value="Lambda" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.lambda_function;fillColor=#F58534;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="860" y="350" width="42" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="RutAHRLgaHvTkr2r3oAR-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="RutAHRLgaHvTkr2r3oAR-5" target="RutAHRLgaHvTkr2r3oAR-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RutAHRLgaHvTkr2r3oAR-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="RutAHRLgaHvTkr2r3oAR-20" target="RutAHRLgaHvTkr2r3oAR-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RutAHRLgaHvTkr2r3oAR-20" value="Lambda" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.lambda_function;fillColor=#F58534;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="860" y="50" width="42" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="RutAHRLgaHvTkr2r3oAR-24" value="DynamoDB" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.dynamo_db;fillColor=#2E73B8;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="194.5" width="42" height="51" as="geometry" />
+        </mxCell>
+        <mxCell id="RutAHRLgaHvTkr2r3oAR-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="RutAHRLgaHvTkr2r3oAR-18">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1021" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RutAHRLgaHvTkr2r3oAR-28" value="GPT 4.1" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://cdn.worldvectorlogo.com/logos/openai-2.svg;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="349" width="39.6" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
