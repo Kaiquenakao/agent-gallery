@@ -15,19 +15,56 @@ AGENT_ENDPOINT = f"{API_BASE_URL}/agent"
 st.markdown(
     """
     <style>
+    /* Remove o espaço vazio no topo */
     .block-container { padding-top: 1rem !important; }
-    [data-testid="stSidebar"] { background-color: #000000; border-right: 2px solid #6a0dad; }
-    [data-testid="stSidebarUserContent"] { display: flex; flex-direction: column; height: 95vh; }
+
+    /* Estilização da Sidebar (Preto e Roxo) */
+    [data-testid="stSidebar"] { 
+        background-color: #000000; 
+        border-right: 2px solid #6a0dad; 
+    }
+    
+    /* Container para empurrar botões para o fundo */
+    [data-testid="stSidebarUserContent"] { 
+        display: flex; 
+        flex-direction: column; 
+        height: 95vh; 
+    }
+    
     .spacer { flex-grow: 1; }
+
+    /* Padronização dos Botões da Sidebar */
     div.stButton > button {
         width: 100%; min-height: 40px; background-color: #6a0dad; color: white;
         border-radius: 8px; border: none; font-weight: bold; font-size: 14px;
         display: flex; align-items: center; justify-content: center; gap: 10px;
         transition: 0.3s; margin-bottom: 10px;
     }
-    div.stButton > button:hover { background-color: #4b0082; border: 1px solid white; }
-    .stImage { display: flex; justify-content: center; margin-bottom: -45px !important; }
+    div.stButton > button:hover { 
+        background-color: #4b0082; 
+        border: 1px solid white; 
+    }
+
+    /* CENTRALIZAÇÃO ABSOLUTA DO LOGO */
+    .logo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-top: 0px;
+        margin-bottom: -30px; /* Ajuste para aproximar da linha hr */
+    }
+
+    .logo-img {
+        width: 200px; /* Tamanho do logo */
+        height: auto;
+    }
+    
+    /* Linha divisória fina */
     hr { margin-top: 0px !important; margin-bottom: 20px !important; border: 0; border-top: 1px solid #333; }
+    
+    /* Ajuste de gaps do Streamlit */
+    [data-testid="stVerticalBlock"] { gap: 0rem !important; }
     </style>
 """,
     unsafe_allow_html=True,
@@ -76,8 +113,8 @@ def modal_criar_agente():
             }
 
             try:
-                with st.spinner("Registrando agente no banco de dados..."):
-                    response = requests.post(AGENT_ENDPOINT, json=payload, timeout=10)
+                with st.spinner("Conectando ao servidor AWS..."):
+                    response = requests.post(AGENT_ENDPOINT, json=payload, timeout=15)
 
                 if response.status_code in [200, 201]:
                     st.success(f"✅ Agente '{agent_id}' criado com sucesso!")
@@ -85,7 +122,6 @@ def modal_criar_agente():
                     st.rerun()
                 else:
                     st.error(f"Erro na API ({response.status_code}): {response.text}")
-
             except Exception as e:
                 st.error(f"Falha na conexão com a API: {e}")
 
@@ -102,19 +138,37 @@ with st.sidebar:
     if st.button("🏠 Início"):
         st.rerun()
 
-col1, col2, col3 = st.columns([1, 1.5, 1])
-with col2:
-    if os.path.exists("img/agent_gallery.png"):
-        st.image("img/agent_gallery.png", width=200)
-    else:
-        st.markdown(
-            "<h1 style='text-align: center; color: #6a0dad;'>Agent Gallery</h1>",
-            unsafe_allow_html=True,
-        )
+logo_path = "img/agent_gallery.png"
+
+import base64
+
+
+def get_image_base64(path):
+    if os.path.exists(path):
+        with open(path, "rb") as f:
+            return base64.b64encode(f.read()).decode()
+    return None
+
+
+img_b64 = get_image_base64(logo_path)
+
+if img_b64:
+    st.markdown(
+        f"""
+        <div class="logo-container">
+            <img src="data:image/png;base64,{img_b64}" class="logo-img">
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+else:
+    st.markdown(
+        "<h1 style='text-align: center; color: #6a0dad;'>Agent Gallery</h1>",
+        unsafe_allow_html=True,
+    )
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
-# --- EXIBIÇÃO DA GALERIA ---
 st.write("#### Galeria de Agentes")
 if not st.session_state.lista_agentes:
     st.info("Nenhum agente registrado ainda.")
@@ -124,7 +178,7 @@ else:
         with cols[idx % 3]:
             with st.container(border=True):
                 st.subheader(f"🤖 {agente['agent_id']}")
-                st.caption(f"Criado em: {agente['created_at'][:10]}")
+                st.caption(f"📅 {agente['created_at'][:10]}")
                 st.write(f"{agente['description']}")
                 with st.expander("Ver Prompt"):
                     st.code(agente["prompt"], language="markdown")
