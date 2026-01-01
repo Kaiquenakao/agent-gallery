@@ -39,3 +39,30 @@ resource "aws_lambda_function" "this" {
 
   depends_on = [aws_iam_role_policy_attachment.lambda_logs]
 }
+
+variable "dynamodb_table_arn" {
+  type = string
+}
+
+resource "aws_iam_role_policy" "dynamo_access" {
+  name = "agent-gallery-dynamo-access"
+  role = aws_iam_role.lambda_exec.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "dynamodb:PutItem",
+          "dynamodb:GetItem",
+          "dynamodb:UpdateItem",
+          "dynamodb:DeleteItem",
+          "dynamodb:Query",
+          "dynamodb:Scan"
+        ],
+        Effect   = "Allow",
+        Resource = var.dynamodb_table_arn
+      }
+    ]
+  })
+}

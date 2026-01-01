@@ -1,5 +1,10 @@
+module "dynamodb" {
+  source = "./infra/dynamodb"
+}
+
 module "lambdas" {
-  source = "./infra/lambda"
+  source             = "./infra/lambda"
+  dynamodb_table_arn = module.dynamodb.table_arn
 }
 
 module "api_gateway" {
