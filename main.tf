@@ -17,6 +17,7 @@ output "api_url" {
 }
 
 module "ssm" {
-  source     = "./infra/ssm"
-  table_name = var.table_name
+  source         = "./infra/ssm"
+  table_name     = var.table_name
+  openai_api_key = var.openai_api_key
 }

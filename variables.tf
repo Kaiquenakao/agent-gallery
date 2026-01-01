@@ -3,3 +3,9 @@ variable "table_name" {
   type        = string
   default     = "agent-gallery"
 }
+
+variable "openai_api_key" {
+  description = "Chave da API OpenAI para ser guardada no SSM"
+  type        = string
+  default     = "value"
+}
