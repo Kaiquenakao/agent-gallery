@@ -1,3 +1,5 @@
+data "aws_caller_identity" "current" {}
+
 data "archive_file" "lambda_zip" {
   for_each    = var.lambda_names
   type        = "zip"
@@ -62,6 +64,26 @@ resource "aws_iam_role_policy" "dynamo_access" {
         ],
         Effect   = "Allow",
         Resource = var.dynamodb_table_arn
+      }
+    ]
+  })
+}
+
+
+resource "aws_iam_role_policy" "ssm_access" {
+  name = "agent-gallery-ssm-access"
+  role = aws_iam_role.lambda_exec.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "ssm:GetParameter",
+          "ssm:GetParameters"
+        ],
+        Effect   = "Allow",
+        Resource = "arn:aws:ssm:sa-east-1:${data.aws_caller_identity.current.account_id}:parameter/agent_gallery/*"
       }
     ]
   })

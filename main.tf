@@ -15,3 +15,8 @@ module "api_gateway" {
 output "api_url" {
   value = module.api_gateway.base_url
 }
+
+module "ssm" {
+  source     = "./infra/ssm"
+  table_name = var.table_name
+}
