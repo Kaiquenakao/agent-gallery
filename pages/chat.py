@@ -52,9 +52,16 @@ if agent_id:
             "<h5 style='text-align: left;'>Prompt do agente:</h5>",
             unsafe_allow_html=True,
         )
-        st.markdown(f"<p>{agent_info['prompt']}</p>", unsafe_allow_html=True)
 
-        st.markdown("---")  # separador
+        st.text_area(
+            label="",
+            value=agent_info["prompt"],
+            height=90,
+            disabled=True,
+            key="agent_prompt",  # chave única
+            label_visibility="collapsed",
+        )
+        st.markdown("---")
 
         st.markdown("<h5>Mensagem do usuário:</h5>", unsafe_allow_html=True)
         user_input = st.text_area(
@@ -67,7 +74,6 @@ if agent_id:
         if st.button("Enviar"):
             if user_input.strip():
                 st.session_state.user_message = user_input
-                print(f"Mensagem do usuário: {user_input}")
 
                 with st.spinner("Enviando mensagem... ⏳"):
                     try:
@@ -81,15 +87,24 @@ if agent_id:
                         st.session_state.agent_response = f"Erro na requisição: {e}"
             else:
                 st.warning("Digite algo antes de enviar!")
+        if st.session_state.agent_response:
+            st.markdown("---")  # separador
+            st.markdown("<h5>Resposta do agente:</h5>", unsafe_allow_html=True)
 
-        st.markdown("<h4>Resposta do agente:</h4>", unsafe_allow_html=True)
-        st.text_area(
-            label="",
-            value=st.session_state.agent_response,
-            height=350,
-            key="agent_textarea",  # chave única
-            disabled=True,
-        )
+            resposta_html = st.session_state.agent_response.replace("\n", "<br>")
 
+            st.markdown(
+                f"""
+                <div style="
+                    background-color: #f5f5f5;  /* fundo cinza */
+                    border: 1px solid #ddd;      /* borda clara */
+                    border-radius: 5px;
+                    padding: 8px;
+                ">
+                    {resposta_html}
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
 else:
     st.error("Nenhum agente selecionado!")

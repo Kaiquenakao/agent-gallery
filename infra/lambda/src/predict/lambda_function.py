@@ -23,8 +23,13 @@ openai.api_key = OPENAI_API_KEY
 
 def lambda_handler(event, context):
     try:
-        agent_id = event.get("agent_id")
-        user_message = event.get("message")
+        if "body" in event:
+            body = json.loads(event["body"])
+        else:
+            body = event
+
+        agent_id = body.get("agent_id")
+        user_message = body.get("message")
 
         if not agent_id or not user_message:
             return {
@@ -53,7 +58,6 @@ def lambda_handler(event, context):
         )
 
         reply = chat_response["choices"][0]["message"]["content"]
-
         return {
             "statusCode": 200,
             "body": json.dumps(

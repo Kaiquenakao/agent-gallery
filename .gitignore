@@ -210,4 +210,6 @@ override.tf.json
 terraform.rc
 .terraform*
 
+infra/lambda/src/predict/python
+
 # End of https://www.toptal.com/developers/gitignore/api/terraform,python

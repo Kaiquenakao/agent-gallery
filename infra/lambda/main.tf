@@ -29,6 +29,46 @@ resource "aws_iam_role_policy_attachment" "lambda_logs" {
   policy_arn = data.aws_iam_policy.lambda_basic_execution.arn
 }
 
+variable "dynamodb_table_arn" { type = string }
+
+resource "aws_iam_role_policy" "dynamo_access" {
+  name = "agent-gallery-dynamo-access"
+  role = aws_iam_role.lambda_exec.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Action = [
+        "dynamodb:PutItem",
+        "dynamodb:GetItem",
+        "dynamodb:UpdateItem",
+        "dynamodb:DeleteItem",
+        "dynamodb:Query",
+        "dynamodb:Scan"
+      ]
+      Effect   = "Allow"
+      Resource = var.dynamodb_table_arn
+    }]
+  })
+}
+
+resource "aws_iam_role_policy" "ssm_access" {
+  name = "agent-gallery-ssm-access"
+  role = aws_iam_role.lambda_exec.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Action = [
+        "ssm:GetParameter",
+        "ssm:GetParameters"
+      ]
+      Effect   = "Allow"
+      Resource = "arn:aws:ssm:sa-east-1:${data.aws_caller_identity.current.account_id}:parameter/agent_gallery/*"
+    }]
+  })
+}
+
 resource "aws_lambda_function" "this" {
   for_each      = var.lambda_names
   function_name = "agent-gallery-${each.key}"
@@ -39,52 +79,13 @@ resource "aws_lambda_function" "this" {
   filename         = data.archive_file.lambda_zip[each.key].output_path
   source_code_hash = data.archive_file.lambda_zip[each.key].output_base64sha256
 
-  depends_on = [aws_iam_role_policy_attachment.lambda_logs]
-}
 
-variable "dynamodb_table_arn" {
-  type = string
-}
+  layers = each.key == "predict" ? [aws_lambda_layer_version.predict.arn] : []
 
-resource "aws_iam_role_policy" "dynamo_access" {
-  name = "agent-gallery-dynamo-access"
-  role = aws_iam_role.lambda_exec.id
-
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Action = [
-          "dynamodb:PutItem",
-          "dynamodb:GetItem",
-          "dynamodb:UpdateItem",
-          "dynamodb:DeleteItem",
-          "dynamodb:Query",
-          "dynamodb:Scan"
-        ],
-        Effect   = "Allow",
-        Resource = var.dynamodb_table_arn
-      }
-    ]
-  })
-}
-
-
-resource "aws_iam_role_policy" "ssm_access" {
-  name = "agent-gallery-ssm-access"
-  role = aws_iam_role.lambda_exec.id
-
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Action = [
-          "ssm:GetParameter",
-          "ssm:GetParameters"
-        ],
-        Effect   = "Allow",
-        Resource = "arn:aws:ssm:sa-east-1:${data.aws_caller_identity.current.account_id}:parameter/agent_gallery/*"
-      }
-    ]
-  })
+  depends_on = [
+    aws_iam_role_policy_attachment.lambda_logs,
+    aws_iam_role_policy.dynamo_access,
+    aws_iam_role_policy.ssm_access,
+    aws_lambda_layer_version.predict
+  ]
 }
