@@ -96,9 +96,9 @@ if agent_id:
             st.markdown(
                 f"""
                 <div style="
-                    background-color: #f5f5f5;  /* fundo cinza */
                     border: 1px solid #ddd;      /* borda clara */
                     border-radius: 5px;
+                    color: #000000;               /* texto preto */
                     padding: 8px;
                 ">
                     {resposta_html}
