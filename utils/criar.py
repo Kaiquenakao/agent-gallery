@@ -12,6 +12,7 @@ AGENT_ENDPOINT = f"{API_BASE_URL}/agent"
 
 @st.dialog("Novo Agente 🤖")
 def modal_criar_agente():
+    # TODO: Criar input para temperatura
     st.write("Preencha os campos obrigatórios abaixo.")
 
     with st.form("form_agente", clear_on_submit=False):
