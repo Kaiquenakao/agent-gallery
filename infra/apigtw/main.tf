@@ -34,6 +34,8 @@ resource "aws_api_gateway_integration" "int" {
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
   uri                     = var.lambda_info[each.value.lambda_key].invoke_arn
+
+  timeout_milliseconds = 40000
 }
 
 resource "aws_lambda_permission" "apigw_lambda" {
