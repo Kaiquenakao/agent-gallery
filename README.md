@@ -113,7 +113,7 @@ streamlit run app.py
 
 ---
 
-## 🔌 Referência da API
+## Referência da API
 
 | Método | Endpoint | Descrição |
 |--------|----------|-----------|
