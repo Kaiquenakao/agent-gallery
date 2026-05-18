@@ -63,7 +63,7 @@ agent-gallery/
 
 ---
 
-## ⚙️ Como rodar
+## Como rodar
 
 ### Pré-requisitos
 
@@ -145,7 +145,7 @@ streamlit run app.py
 
 ---
 
-## 🔐 Segurança
+## Segurança
 
 - Todos os segredos (chave OpenAI, nome da tabela DynamoDB) são armazenados no **AWS SSM Parameter Store** com criptografia
 - As roles IAM seguem o princípio do menor privilégio
