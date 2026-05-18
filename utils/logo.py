@@ -4,7 +4,7 @@ import base64
 
 
 def logo():
-    logo_path = "img/agent_gallery.png"
+    logo_path = "img/title_agent_gallery.png"
 
     def get_image_base64(path):
         if os.path.exists(path):
